@@ -1,6 +1,8 @@
 var express=require('express');
 var router=express.Router();
 var User=require('../models/user');
+var passport=require('passport');
+var LocalStrategy=require('passport-local').Strategy;
 
 // Register
 router.get('/register',function(req,res){
@@ -49,4 +51,7 @@ router.post('/register',function(req,res){
 	}
 });
 
+app.post('/login',passport.authenticate('local'),function(req,res){
+
+});
 module.exports=router;
